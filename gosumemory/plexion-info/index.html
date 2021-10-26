@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/odometr.css">
+    <script src="deps/odometr.js"></script>
+    <script src="deps/reconnecting-websocket.min.js"></script>
+
+	<link rel="stylesheet" href="https://plexion.dev/css/reset.css">
+	<link rel="stylesheet" href="https://plexion.dev/css/style.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark">
+	<div class="info-block">
+		<div class="title">
+			<h3 id="title"></h3>
+			<p id="diff" class="text-18"></p>
+		</div>
+		<div class="mods" id="mods"></div>
+		<div id="only-ingame">
+			<div class="pp">
+				<div id="ppCont">
+					<h1 id="pp" class="odometer text-64"></h1>
+					<h3>pp</h3>
+				</div>
+			</div>
+			<div class="rank">
+				<h2 id="rank"></h2>
+			</div>
+			<div class="hits">
+				<span class="h100">
+					<label class="over">100</label>
+					<br>
+					<h4 id="h100" class="text-20 odometer">0</h4>
+				</span>
+				<span class="h50">
+					<label class="over">50</label>
+					<br>
+					<h4 id="h50" class="text-20 odometer">0</h4>
+				</span>
+				<span class="h0">
+					<label class="over">X</label>
+					<br>
+					<h4 id="h0" class="text-20 odometer">0</h4>
+				</span>
+			</div>
+		</div>
+	</div>
+    <script src="index.js"></script>
+</body>

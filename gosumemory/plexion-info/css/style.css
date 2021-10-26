@@ -1,0 +1,126 @@
+* {
+    --font-head: Poppins, var(--font-main) !important;
+}
+
+.info-block {
+    padding: 40px;
+    height: 236px;
+    width: 900px;
+}
+
+/* title + diff */
+#title, #diff {
+    width: max-content;
+    overflow: hidden;
+    max-height: 40px;
+}
+#title {
+    position: absolute;
+    top: 40px;
+}
+#diff {
+    position: absolute;
+    top: 64px;
+}
+/* */
+.title {
+    height: 70px;
+    width: 100%;
+}
+
+
+/* pp */
+.pp {
+    height: 106px;
+    display: flex;
+}
+#ppCont {
+    position: absolute;
+    bottom: 40px;
+	left: 38px;
+    width: max-content;
+    max-height: 90px;
+    overflow: hidden;	
+    transition: ease-in-out 500ms;
+    display: flex;
+}
+#ppCont .odometer-value {
+    width: 30px;
+}
+#ppCont h3 {
+    position: relative;
+    top: 50px;
+    margin-left: 5px;
+}
+
+
+/* hits */
+.hits {
+    position: absolute;
+    bottom: 40px;
+    right: 30px;
+}
+.hits {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    width: 250px;
+    grid-gap: 10px;
+}
+.hits h4 {
+    margin-right: 30px;
+}
+
+
+/* mods */
+.mods {
+    position: absolute;
+    bottom: 120px;
+    right: 170px;
+    display: flex;
+    justify-content: flex-end;
+    transition: 0.3s;
+}
+.mod img {
+    position: relative;
+    height: 40px;
+    width: 40px;
+    z-index: 1;
+    object-fit: cover;
+    margin-right: -5px;
+}
+.mods.move {
+    right: 60px;
+}
+
+
+/* rank */
+.rank {
+    position: absolute;
+    bottom: 115px;
+    right: 80px;
+    display: flex;
+    justify-content: flex-end;
+    font-style: italic;
+}
+
+
+
+/* in-built */
+
+/* overflow text */
+.overflow { 
+    transform: translate(300px);
+    animation: slide 5s linear infinite;
+}
+@keyframes slide {
+    0% {transform: translate(0px);}
+	10% {transform: translate(0px);}
+    90% { transform: translate(calc(-100% + 300px)); }
+    100% { transform: translate(calc(-100% + 300px)); }
+}
+
+
+/* only show in-game */
+#only-ingame {
+    transition: 0.15s;
+}

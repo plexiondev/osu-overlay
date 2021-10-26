@@ -1,0 +1,2539 @@
+/*
+    PLEXION.DEV STYLESHEET - BUILD2
+
+    BUILT ON:
+    • Speed + Performance
+    • Ease of use
+    • APIs from all platforms
+    • All commented to be easy to read/understand
+
+*/
+
+/* Import required fonts */
+/* Header */       @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*  Main  */       @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/*  Code  */       @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/* OpenDyslexic */ @import url('fonts/opendyslexic/opendyslexic.css');
+/* Hyperlegible */ @import url('fonts/hyperlegible/hyperlegible.css');
+
+/* Torus */        @import url('fonts/torus/torus.css');
+/* JetBrains */    @import url('fonts/jetbrains/jetbrains.css');
+
+/* Ginto */        @import url('fonts/ginto-normal/ginto-normal.css');
+                   @import url('fonts/ginto-nord/ginto-nord.css');
+
+:root {
+    /* Global site padding */
+    --padding: 300px;
+    --highlight-padding: 380px;
+    --limited-padding: 500px;
+    /* Fonts */
+    --font-head: "Ginto Normal", Poppins, var(--font-main);
+    --font-head-small: "Ginto Normal", var(--font-main);
+    --font-headline: "Ginto Nord", var(--font-head);
+    --font-main: -apple-system, BlinkMacSystemFont, Inter, Roboto, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-code: "JetBrains Mono", "Roboto Mono", consolas, var(--font-main);
+    --font-dyslexic: opendyslexicregular, var(--font-main);
+    --font-hyperlegible: 'Atkinson Hyperlegible', var(--font-main);
+    --font-tag: Torus, Quicksand, var(--font-main);
+    /* Link colouring */
+    --home: var(--feature);
+    --events: var(--success);
+    --library: var(--pending);
+    --socials: var(--danger);
+    --experiments: #d08af1;
+    --accent-page: var(--home);
+    /* Tag colourset */
+    --danger: #ff6f6f;
+    --success: #B2FF66;
+    --feature: #7bd2fd;
+    --pending: #FFD966;
+    /* Background colourset */
+    --red: #F75956;
+    --green: #76F756;
+    --blue: #3D5FF1;
+    --amber: #FFCF68;
+    --white: #FFFFFF;
+    --grey: #0F0F0F;
+}
+
+/* Define global colours */
+:root, .light, .dark .opposite, .dark.light, .dark.light .dark:not(footer):not(header):not(.bg):not(.bg section) {
+    /* Backgrounds */
+    /*   Main body  */ --body: #F5F5F5; --dark-body: #0E0E14;
+    /*    Card bg   */ --main: #ffffff; --dark-main: #16161f;
+    /*   Sec body   */ --highlight: #f0f0f0; --dark-highlight: #101018;
+    /*   Alt body   */ --alt: #e6e6e6; --dark-alt: #1e1e2b;
+    /*    Footer    */ --ext: #d4d4d4; --dark-ext: #0b0b0f;
+    --raise-hover: rgba(212,212,212,0.7);
+    --raise-focus: rgba(212,212,212,1);
+    --raise-bg: #e7e7e7;
+    --border: rgba(212,212,212,0.55);
+    --border-alt: var(--ext);
+    /* Text + icons */
+    --icon: rgba(0,0,0,0.5);
+    --text-head: rgba(0,0,0,1); --light-text-head: rgba(0,0,0,1);
+    --text-main: rgba(0,0,0,0.85); --light-text-main: rgba(0,0,0,0.85);
+    --text-alt: rgba(0,0,0,0.65);
+    --text-link: #284fec;
+    --text-bg: #ffffff;
+    /* Accent colours */
+    --accent: #134ab1;
+    --accent-raise: #2f6bda;
+    --target: rgba(78,112,248,0.7);
+    --target-raise: rgba(78,112,248,0.3);
+    --button: #0f0f0f;
+    --button-raise: #1b1b1b;
+    /* Raised shadows */
+    --raise-1: 0px 5px 5px 0px rgba(0,0,0,0.1);
+    --raise-2: 0px 5px 5px 0px rgba(0,0,0,0.15);
+    --raise-3: 0px 5px 5px 0px rgba(0,0,0,0.25);
+    --raise-4: 0px 5px 5px 0px rgba(0,0,0,0.35);
+    --raise-5: 0px 5px 5px 0px rgba(0,0,0,0.45);
+    --raise-6: 0px 5px 5px 0px rgba(0,0,0,0.55);
+    --raise-7: 0px 5px 15px 5px rgba(0,0,0,0.3);
+}
+.dyslexic {
+    --font-accessibility: var(--font-dyslexic);
+}
+.hyperlegible {
+    --font-accessibility: var(--font-hyperlegible);
+}
+.dyslexic, .hyperlegible {
+    --font-head: var(--font-accessibility);
+    --font-head-small: var(--font-accessibility);
+    --font-headline: var(--font-accessibility);
+    --font-main: var(--font-accessibility);
+    --font-code: var(--font-accessibility);
+    --font-tag: var(--font-accessibility);
+}
+
+/* Targeted with #something */
+:target {
+    animation: target-fade 3s 1;
+    -webkit-animation: target-fade 3s 1;
+    -moz-animation: target-fade 3s 1;
+}
+*:focus {
+    outline: 2px solid var(--target);
+}
+
+/* Text selection */
+::selection, ::-moz-selection {
+    background: var(--accent-page);
+    color: #000000;
+}
+
+@keyframes target-fade {
+    0% { background-color: var(--target); }
+    100% { background-color: initial; }
+}
+
+@-webkit-keyframes target-fade {
+    0% { background-color: var(--target); }
+    100% { background-color: initial; }
+}
+
+@-moz-keyframes target-fade {
+    0% { background-color: var(--target); }
+    100% { background-color: initial; }
+}
+
+/* Dark sections */
+.dark, .opposite, .light .opposite {
+    /* Backgrounds */
+    /*   Main body  */ --body: #070707;
+    /*    Card bg   */ --main: #0a0a0a;
+    /*   Sec body   */ --highlight: #080808;
+    /*   Alt body   */ --alt: #0f0f0f;
+    /*    Footer    */ --ext: #000000;
+    --raise-hover: rgba(41, 44, 71, 0.7);
+    --raise-focus: rgba(41, 44, 71, 1);
+    --raise-bg: rgba(105, 105, 105, 0.1);
+    --border: rgba(55,55,78,0.2);
+    --border-alt: rgba(55,55,78,0.8);
+    /* Text + icons */
+    --icon: rgba(255, 255, 255, 0.7);
+    --text-head: rgba(255,255,255,1);
+    --text-main: rgba(255, 255, 255, 0.8);
+    --text-alt: rgba(255, 255, 255, 0.65);
+    --text-link: var(--accent-page);
+    /* Raised shadows */
+    --raise-1: 0px 5px 5px 0px rgba(0,0,0,0.25);
+    --raise-2: 0px 5px 5px 0px rgba(0,0,0,0.35);
+    --raise-3: 0px 5px 5px 0px rgba(0,0,0,0.55);
+    --raise-4: 0px 5px 5px 0px rgba(0,0,0,0.65);
+    --raise-5: 0px 5px 5px 0px rgba(0,0,0,0.75);
+    --raise-6: 0px 5px 5px 0px rgba(0,0,0,0.8);
+}
+
+/* Accessibility */
+.reduced-saturation *:not(header) {
+    filter: saturate(0.7) !important;
+}
+.reduced-motion section .bg {
+    display: none;
+}
+/* Show saturation notice */
+.warning.saturation {
+    display: none;
+}
+.reduced-saturation .warning.saturation {
+    display: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    transition: 0.1s ease-in-out;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-alt);
+    border-radius: 10px;
+    transition: 0.1s ease-in-out;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: var(--text-alt);
+    transition: 0.1s ease-in-out;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
+    border-radius: 10px;
+    transition: 0.1s ease-in-out;
+}
+
+/* Define key elements */
+html {
+    /* scrolling */
+    scroll-behavior: smooth;
+}
+body {
+    background: var(--body);
+    font-family: var(--font-main);
+    color: var(--text-main);
+    /* Have parity with Firefox's readable font smoothing for Chromium/WebKit */
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+* {
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-alt) none;
+}
+.pad.r {
+    padding-right: 10px;
+}
+/* Header 1 (attention-drawing headline) */
+h1 {
+    font-family: var(--font-head-small);
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--text-head);
+    padding: 16px 0;
+    line-height: 60px;
+}
+a.act-h1 {
+    font-family: var(--font-main);
+    font-weight: 600;
+    padding: 16px 0;
+    line-height: 60px;
+}
+/* Header 2 (less-important headline) */
+h2 {
+    font-family: var(--font-head-small);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--text-head);
+    padding: 10px 0;
+}
+/* Header 3 */
+h3 {
+    font-family: var(--font-head-small);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text-head);
+    padding: 6px 0;
+}
+/* Header 4 (slightly bigger than default text) */
+h4 {
+    font-family: var(--font-main);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-head);
+    padding: 3px 0;
+}
+/* Header 5 (same size as default text) */
+h5 {
+    font-family: var(--font-main);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-head);
+}
+a {
+    color: var(--text-link);
+    text-decoration: underline;
+    transition: color 0.2s, transform 0.3s;
+}
+a:hover {
+    color: var(--text-head);
+}
+i.i {
+    font-style: italic;
+    color: var(--text-alt);
+}
+.brand h1 {
+    font-family: var(--font-head) !important;
+}
+.heavy-font, .head-font {
+    font-family: var(--font-head);
+}
+.headline-font {
+    font-family: var(--font-headline) !important;
+    font-weight: 600 !important;
+}
+.heavy {
+    font-weight: 900;
+    text-transform: uppercase;
+}
+/* Code element */
+code {
+    font-family: var(--font-code);
+    padding: 0 7px;
+    border-radius: 5px;
+    display: inline-block;
+    white-space: nowrap;
+}
+.code-font {
+    font-family: var(--font-code);
+}
+code i {
+    font-size: 18px !important;
+    position: relative;
+    bottom: 2px;
+}
+/* PFP image (resembles discord server icons) */
+img.pfp, section.img .img img.pfp, section.img .img .img-con {
+    width: 350px;
+    border-radius: 50%;
+    transition: 0.35s;
+    background: var(--dark-ext);
+    --hover: 100px
+}
+img.pfp:hover, section.img .img img.pfp:hover, section.img .img .img-con:hover, a:hover img.pfp, a:focus img.pfp {
+    border-radius: var(--hover);
+    cursor: pointer;
+    background: var(--accent-raise);
+    box-shadow: var(--raise-7);
+}
+img.pfp.med {
+    width: 256px;
+    --hover: 60px; 
+}
+img.pfp.small {
+    width: 128px;
+    --hover: 30px;
+}
+
+/* Tooltips */
+[data-tooltip] {
+    position: relative;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+}
+[data-tooltip]:before {
+    position: absolute;
+    content: attr(data-tooltip);
+    opacity: 0;
+    max-width: 170px;
+    background: rgba(22,22,31,0.7);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    bottom: -100%;
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    transition: 0.15s;
+    transform: scale(0.9);
+    letter-spacing: initial;
+}
+[data-tooltip]:hover:before, [data-tooltip]:focus:before {
+    opacity: 1;
+    transform: scale(1);
+}
+[data-tooltip]:not([data-tooltip-persistent]):before {
+    pointer-events: none;
+}
+
+/* Link wrap */
+.link-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    grid-gap: 5px;
+}
+
+/* Buttons */
+.button {
+    /* Apply padding and sizing */
+    padding: 13px 21px;
+    margin: 10px;
+    border-radius: 20px;
+    /* Modify text */
+    color: var(--text-bg);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: var(--button-raise);
+    /* Set display method */
+    box-shadow: none;
+    display: inline-block;
+    transition: background-color 0.2s, letter-spacing 0.2s, transform 0.2s, filter 0.2s;
+    /* Centre text when on mobile */
+    text-align: center;
+}
+.mobile .button, .mobile .button.big {
+    padding: 16px 48px;
+}
+/* Button styling (upon hover) */
+.button:hover, .button:focus {
+    background-color: var(--button);
+}
+.button:active:not(.reduced-motion .button:active) {
+    transform: scale(0.95);
+    outline: none;
+}
+.button:active {
+    filter: brightness(150%) !important;
+}
+/* Focus buttons (important) */
+.button.focus {
+    background-color: var(--accent-raise);
+    color: var(--text-head);
+    box-shadow: none;
+    text-shadow: none;
+}
+.button.focus:hover, .button.focus:focus {
+    box-shadow: none;
+    background-color: var(--accent);
+}
+/* Button big */
+.button.big {
+    border-radius: 28px;
+    font-size: 18px;
+    padding: 16px 32px;
+}
+/* Button without margin */
+.button.left {
+    margin-left: 0;
+}
+.button.right {
+    margin-right: 0;
+}
+
+/* Button groups */
+.button-group {
+    font-size: 0;
+    white-space: nowrap;
+}
+.button-group > :first-child {
+    border-radius: 20px 0 0 20px;
+    margin-right: 0;
+    padding-right: 21px;
+    border-right: 1px solid var(--button);
+}
+.button-group > .button:not(:first-child):not(:last-child) {
+    border-radius: 0;
+    margin-left: 0;
+    margin-right: 0;
+    border-left: 1px solid var(--button);
+    border-right: 1px solid var(--button);
+}
+.button-group > :last-child {
+    border-radius: 0 20px 20px 0;
+    margin-left: 0;
+    padding-left: 21px;
+    border-left: 1px solid var(--button);
+}
+
+/* Icon buttons */
+.icon:after, .icon.left:before, .icon.right:after {
+    /* Apply font for Material Icons */
+    --font: 'Material Icons';
+    font-family: var(--font);
+    font-size: 24px;
+    /* Reset display */
+    font-weight: normal;
+    font-style: normal;
+    line-height: 0.5;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    vertical-align: middle;
+    text-decoration: none;
+    /* Re-align icons with text */
+    position: relative;
+    bottom: 3px;
+}
+.button.icon:after {
+    margin-left: 5px;
+}
+/* Outlined Material Icons */
+.icon.outline:after, .icon.outline.left:before, .icon.outline.right:after {
+    --font: 'Material Icons Outlined';
+}
+/* Font awesome icon buttons */
+.faicon:after, .faicon.left:before, .faicon.right:after {
+    font-family: 'Font Awesome 5 Free';
+}
+/* Buttons with external page links */
+.button.ext:after {
+    content: "open_in_new";
+}
+/* Buttons with downloads */
+.button.dow:after {
+    content: "file_download";
+}
+.button.con:after, a.con:after {
+    content: "arrow_right";
+}
+/* Buttons with email capability */
+.button.mail:after {
+    content: "forward_to_inbox";
+}
+/* Disabled button */
+.button[disabled] {
+    color: var(--text-alt) !important;
+    cursor: not-allowed !important;
+    opacity: 0.8 !important;
+}
+
+/* Header */
+header {
+    /* Apply padding and backgrounds */
+    padding: 40px var(--padding);
+    background: var(--main);
+    /* Set display */
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+    transition: padding-top 0.3s, padding-bottom 0.3s, background 0.3s, backdrop-filter 0.3s, -webkit-backdrop-filter 0.3s;
+    z-index: 100;
+    /* Align to top */
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+/* Brand wordmark */
+header .brand h1 {
+    --col: #003BFF;
+    text-shadow: -5px 5px 0px var(--col);
+    transition: 0.3s;
+    font-size: 52px;
+    padding: 16px 0;
+    cursor: pointer;
+}
+/* Section backing gradient */
+section .grad {
+    /* Absolute positioning behind the header */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s;
+    /* Sets a gradient based on a --grad variable specified in HTML */
+    background: linear-gradient(180deg, var(--grad) 0%, rgba(0,0,0,0) 100%);
+    /* Makes the gradient *very* translucent */
+    opacity: 0.4;
+}
+/* Defines header when joined to content seamlessly */
+header.join {
+    padding: 20px var(--padding);
+    background-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+header.join .brand h1, header.small .brand h1 {
+    --col: #003BFF;
+    text-shadow: -4px 4px 0px var(--col);
+    padding: 5px 0;
+    font-size: 40px;
+}
+/* Modify text colour on certain backgrounds */
+header.join.bright .links a:not(header.scrolled.join.bright .links a) {
+    color: var(--ext);
+    text-shadow: none;
+}
+header.join.grey .links a {
+    color: #FFFFFF;
+}
+/* Defines header when made smaller */
+header.small {
+    padding: 30px var(--padding);
+}
+/* Header brand raising */
+header .brand.raise h1, header.join .brand.raise h1 {
+    --col: var(--grey);
+}
+/* Defines header when scrolled */
+header.scrolled {
+    padding: 0 var(--padding);
+    /* Ensure background is translucent (to allow blurred background) */
+    background-color: rgba(19, 19, 19, 0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background-image: none;
+    /* Apply blurry background to header */
+    -webkit-backdrop-filter: saturate(250%) blur(20px);
+    backdrop-filter: saturate(250%) blur(20px);
+}
+/* Header upon scroll */
+header.scrolled .brand h1, header.scrolled .brand.raise h1 {
+    /* Swap the colour (if previously raised etc.) */
+    --col: #003BFF;
+    /* Moves in the shadow */
+    text-shadow: -3.5px 3.5px 0px var(--col);
+    padding: 5px 0;
+    font-size: 36px;
+}
+/* Deprecated header gap when not joined to content */
+.header-gap {
+    height: 172px;
+    background: var(--body);
+}
+.header-gap.small {
+    height: 130px;
+}
+/* When joined */
+header.join .links a {
+    color: var(--text-main);
+}
+header.scrolled .links a {
+    text-shadow: none;
+}
+header.join .links a:hover {
+    color: var(--text-head);
+}
+header .links a .icon {
+    display: none;
+    position: relative;
+    bottom: 2px;
+}
+/* Header links */
+header .links a {
+    color: var(--text-alt);
+    text-decoration: none;
+    margin-left: 30px;
+    transition: color 0.3s, opacity 0.2s;
+    font-size: 16px;
+    padding: 3px 0;
+    font-weight: 400;
+}
+header:not(.scrolled) .links a {
+    opacity: 0.2;
+}
+header:hover .links a, header:focus-within .links a {
+    opacity: 1;
+}
+/* Un-italicise links */
+header .links a i {
+    font-style: normal;
+}
+/* Upon hover */
+header .links a:hover, header .links a:focus {
+    color: var(--text-main);
+}
+/* Dropdown on header */
+header .links .links-wrap {
+    max-height: 0;
+    height: 0;
+    overflow: hidden;
+    display: block;
+    transition: 0.3s;
+}
+header .links .links-wrap ul {
+    margin: 20px 0;
+}
+header .links .links-wrap li:before {
+    display: none;
+}
+/* Current page */
+header .links a.focus {
+    color: var(--text-head);
+    font-weight: 700;
+    position: relative;
+    width: 100%;
+}
+header .links a.focus .bar {
+    display: inline-block;
+    height: 4px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border-radius: 20px;
+    background-color: var(--accent-page);
+    margin-top: 2px;
+    transition: 0.15s;
+    box-shadow: 0px 0px 10px 0px var(--accent-page);
+}
+
+/* Card (with background) */
+.bg {
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    background-position: center;
+}
+.buttons {
+    background-size: 300%;
+}
+
+/* Notice */
+.notice {
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    background: var(--alt);
+}
+.notice h5 {
+    margin: 0 10px;
+}
+
+/* Images */
+.images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 15px;
+    transition: 0.2s;
+    padding: 15px 0;
+}
+.images .image {
+    overflow: hidden;
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid var(--text-alt);
+    position: relative;
+    display: inline;
+}
+.images .image.accent {
+    background: var(--target);
+}
+.images .image .img {
+    display: flex;
+    justify-content: center;
+}
+.images .image .links {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.images .image .img img {
+    width: 350px;
+}
+/* Image caption */
+.cap {
+    color: var(--text-alt);
+}
+
+/* Default image */
+.img {
+    border-radius: 20px;
+    width: 100%;
+}
+.img.square {
+    border-radius: 0;
+}
+img.small {
+    max-width: 350px;
+}
+img.med {
+    max-width: 550px;
+}
+img.big {
+    max-width: 700px;
+}
+
+/* Crafting recipe */
+
+.recipe {
+    display: grid;
+    grid-template-columns: 40px 40px 40px;
+    grid-template-rows: 40px 40px 40px;
+    gap: 5px;
+    grid-template-areas:
+        ". . ."
+        ". . ."
+        ". . .";
+}
+.recipe .slot {
+    background-color: var(--alt);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}
+.recipe .slot img {
+    width: 32px;
+    height: 32px;
+    image-rendering: crisp-edges;
+}
+
+/* Colour blocks */
+.colours {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 15px;
+    transition: 0.2s;
+    padding: 15px 0;
+}
+.colours.med {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.colour {
+    background: var(--main);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--alt);
+    text-align: left;
+}
+.colour h1 {
+    padding: 0;
+    margin-bottom: 80px;
+}
+
+/* Options */
+.options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    transition: 0.2s;
+    margin: 20px 0;
+}
+.options .option {
+    padding: 20px;
+    background: var(--body);
+    transition: 0.2s;
+    cursor: pointer;
+    border: 2px solid var(--border);
+    text-align: left;
+}
+.options .option:hover {
+    background: var(--highlight);
+}
+/* Found on the socials#contact page */
+.options .option#general {
+    border-right: 2px solid var(--border);
+    border-radius: 20px 0 0 20px;
+}
+.options .option#business {
+    border-radius: 0 20px 20px 0;
+    border-left: 0;
+}
+
+/* Playlists */
+.playlists {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 15px;
+    transition: 0.2s;
+    padding: 20px 0;
+}
+/* Playlist cover */
+.playlist .cover {
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    background: var(--highlight);
+    max-height: 250px;
+    --col: #003BFF;
+    border: 6px solid var(--col);
+}
+.cover.plex-news {
+    --col: #FF1200;
+}
+.cover.plexmas {
+    --col: #277D00;
+}
+.cover.osuplexion {
+    --col: #FF59A6;
+}
+.playlist .cover img {
+    width: 100%;
+    transition: 0.2s;
+    transform: scale(1.07);
+}
+.playlist:hover .cover img:not(.reduced-motion .playlist:hover .cover img) {
+    transform: scale(1.14);
+    filter: saturate(1.1);
+}
+/* Playlist link */
+.playlist .info {
+    text-align: center;
+}
+.playlist .info * {
+    padding: 0;
+    margin: 0;
+}
+
+/* Cards */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 40px 20px;
+    transition: 0.2s;
+    padding: 20px;
+}
+.cards.small {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+.cards.pfp {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+/* Card */
+.card {
+    transition: 0.2s;
+    border-radius: 10px;
+    position: relative;
+    bottom: 0;
+    display: block;
+    overflow: hidden;
+    text-align: left;
+    text-decoration: none !important;
+}
+.card:active:not(.reduced-motion .card:active) {
+    transform: scale(0.97);
+    outline: none;
+}
+.card.hover {
+    cursor: pointer;
+}
+/* Card description */
+.card .info .meta {
+    opacity: 0.8;
+}
+/* Card cover image */
+.card .cover {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    background: var(--highlight);
+    max-height: 250px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.card .cover img {
+    width: 100%;
+    transition: 0.25s;
+}
+.card.hover:hover .cover img:not(.reduced-motion .card.hover:hover .cover img), .card.hover:focus .cover img:not(.reduced-motion .card.hover:focus .cover img) {
+    transform: scale(1.04);
+    filter: brightness(110%);
+}
+/* Card info section */
+.card .info {
+    padding-bottom: 20px;
+    overflow: hidden;
+}
+.card .info h1, .card .info h2, .card .info h3 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+/* Card button section */
+.card .buttons {
+    transition: 0.3s ease-in-out;
+    background: var(--secondary-background);
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    padding: 20px;
+    margin: 0;
+    justify-content: center;
+}
+.card .buttons .button {
+    flex: 1;
+}
+.card .buttons .tag {
+    margin: 0 5px;
+}
+
+/* SVG */
+svg {
+    color: var(--text-icon);
+}
+
+/* Icon headline circle */
+.headline-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px;
+    background: var(--raise-bg);
+    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+}
+/* Solid variant */
+.headline-icon.solid {
+    background: var(--button-raise);
+}
+/* Define icons and SVGs */
+.headline-icon i, .headline-icon svg {
+    font-size: 32px;
+    color: var(--feature);
+}
+.headline-icon.svg svg {
+    width: 32px;
+    height: 32px;
+}
+
+/* Big variant */
+.headline-icon.big {
+    width: 100px;
+    height: 100px;
+}
+.headline-icon.svg.big svg {
+    width: 70px;
+    height: 70px;
+}
+/* Medium variant */
+.headline-icon.med {
+    padding: 7px;
+    width: 64px;
+    height: 64px;
+}
+.headline-icon.med i {
+    font-size: 48px;
+}
+/* Small variant */
+.headline-icon.small {
+    padding: 5px;
+    width: 42px;
+    height: 42px;
+}
+.headline-icon.small i {
+    font-size: 28px;
+}
+/* Minimum variant */
+.headline-icon.min {
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border-radius: 5px;
+}
+.headline-icon.min i {
+    font-size: 24px;
+    color: var(--accent-page);
+}
+.headline-icon.min img {
+    width: 32px;
+    height: 32px;
+    image-rendering: crisp-edges;
+}
+.headline-icon.min.back {
+    background: var(--raise-bg);
+}
+.headline-icon.min.padding {
+    margin: 7px 0;
+}
+/* Light theme */
+.light .headline-icon.min i {
+    color: var(--text-head);
+}
+
+/* Sub tiles */
+.sub-tiles-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.sub-tiles-wrapper.left {
+    justify-content: left;
+}
+.sub-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-gap: 15px;
+    max-width: 900px;
+    margin: 30px 0;
+}
+.sub-tiles .tile {
+    text-align: left;
+    margin: 10px 0;
+    text-decoration: none;
+    padding: 10px;
+    transition: 0.1s;
+    border-radius: 10px;
+}
+.sub-tiles .tile .headline-icon {
+    margin-bottom: 5px;
+}
+
+/* Info descriptions */
+.info-wrap {
+    display: block;
+    margin: 20px 0;
+}
+.info-wrap .desc {
+    display: block ruby;
+}
+.info-wrap .desc p.col-alt {
+    width: 120px;
+}
+.info-wrap .desc p:not(.col-alt) {
+    margin: 0 5px;
+}
+
+/* Social links (once again, found on the socials page) */
+.social-wrap {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    grid-gap: 15px;
+    margin: 20px 0;
+}
+.social-wrap .social {
+    padding: 10px;
+    display: block;
+    text-align: left;
+}
+.social-wrap .social .head {
+    border-bottom: 1px solid var(--border);
+    padding: 0 0 5px 0;
+    margin-bottom: 5px;
+}
+/* Deprecated gradient below social headers */
+.grad {
+    box-shadow: 0px 5px 12px -12px var(--grad) inset;
+}
+/* Lists containing profile pictures */
+li .pfp img {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+li.pfp-wrap:before {
+    display: none;
+}
+/* Social lists */
+.social-wrap .social .details li {
+    padding: 5px 0;
+}
+.social .details li {
+    transition: 0.1s;
+}
+.social .details li:hover {
+    background: var(--highlight);
+}
+
+/* Support descriptions (found on library pages) */
+.supports {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    grid-gap: 30px 15px;
+    margin: 20px 0;
+}
+.supports .desc {
+    display: flex;
+}
+.supports .desc .icon {
+    width: 38px;
+    margin-right: 10px;
+}
+.supports .desc .text {
+    flex-grow: 1;
+}
+.supports .desc p, .supports .desc h5 {
+    margin: 0;
+    padding: 2px 0;
+}
+
+/* Sections */
+section {
+    --top: 65px;
+    --sides: 120px;
+    padding: var(--top) var(--sides);
+    position: relative;
+    overflow: hidden;
+}
+/* Apply text shadow to background headers */
+section.bg.header {
+    text-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+}
+/* Apply optional padding to take into account header's size when joined */
+.header.padding {
+    padding-top: 130px;
+}
+/* Centered sections */
+section.center {
+    text-align: center;
+    padding: var(--top) var(--padding);
+}
+/* Special types of sections that instead of holding content, act as a gap */
+section .gap {
+    height: 150px;
+}
+section .gap.small {
+    height: 50px;
+}
+/* Sections that can have border seperators (found on library pages) */
+section.sep {
+    border-top: 2px solid var(--border);
+    padding: 30px 0;
+    margin: 0 var(--sides);
+}
+section.no-sep {
+    padding: 30px 0;
+    margin: 0 var(--sides);
+}
+/* For sections (mainly header sections) that require good contrast between videos/images in the background */
+section .bg-filter, section .bg-dark, section .bg-back, div .bg-filter, div .bg-dark, div .bg-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+/* Apply blur + background dim */
+section .bg-filter, div .bg-filter {
+    background: rgba(0,0,0,0.3);
+    -webkit-backdrop-filter: blur(7px);
+    backdrop-filter: blur(7px);
+}
+/* Apply only background dim */
+section .bg-dark, div .bg-dark {
+    background: rgba(0,0,0,0.5);
+}
+section .bg-back, div .bg-back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+/* Act simply as a layer above the section */
+section .bg, div .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    width: 100%;
+}
+.background-videos section .bg {
+    display: none;
+}
+/* Define simple layouts of videos in backgrounds */
+section .bg video {
+    flex: 1;
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+}
+section .bg.iframe .video {
+    position: relative;
+    bottom: 20%;
+}
+section * {
+    position: relative;
+    z-index: 2;
+}
+/* Section size variations */
+section.small {
+    --top: 90px;
+}
+section.med {
+    --top: 130px;
+}
+section.big {
+    --top: 170px;
+}
+section.xl {
+    --top: 220px;
+}
+section.screen {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+section.screen.center {
+    justify-content: center;
+}
+/* Sections limited to a certain size, based on padding + screen width */
+section.limited {
+    padding: var(--top) var(--limited-padding);
+}
+/* Section left+right aligned */
+section.left {
+    text-align: left;
+}
+section.right {
+    text-align: right;
+}
+section.right .align-left {
+    text-align: left;
+}
+/* Apply padding for left/right */
+section.left, section.right {
+    --sides: var(--highlight-padding);
+}
+section.left.full, section.right.full, section.left.header, section.right.header {
+    --sides: var(--padding);
+}
+/* Custom section colours */
+section.main {
+    background-color: var(--main);
+}
+section.alt, div.alt {
+    background-color: var(--highlight);
+}
+section.ext, div.ext {
+    background-color: var(--ext);
+}
+/* Flipped due to recent changes */
+section.accent, div.accent {
+    background-color: var(--accent-raise);
+}
+section.accent-raise, div.accent-raise {
+    background-color: var(--accent);
+}
+/* osu! background */
+section.osu, div.osu {
+    background-color: #FF66AA;
+}
+/* Taken from page's accent, recommended to use black solid text on these (apply light/opposite class) */
+section.accent-page, div.accent-page {
+    background-color: var(--accent-page);
+}
+/* The actual, original Discord blurple */
+section.blurple, div.blurple {
+    background-color: #7289DA;
+}
+/* Sky + cloud type colouring */
+section.sky, div.sky {
+    background-color: #4788FF;
+}
+section.clouds, div.clouds {
+    background-color: #D1E1FF;
+}
+/* Gradient versions */
+.sky-grad {
+    background: linear-gradient(180deg, #4788FF 0%, #D1E1FF 100%);
+}
+.clouds-grad {
+    background: linear-gradient(180deg, #D1E1FF 0%, #FFFFFF 100%);
+}
+/* Simple pink - similar to 100 sub special colour on 2020dark */
+section.pink {
+    background-color: #EF70DC;
+}
+/* Section left+right image sections */
+section.img {
+    display: flex;
+    flex-grow: 1;
+}
+section.img.left .text {
+    margin-right: 30px;
+}
+section.img.right .text {
+    margin-left: 30px;
+}
+section.img.left .img img, section.img.left .img .img-attach {
+    float: right;
+}
+/* Define text when images are present */
+section.img .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 380px;
+    overflow: hidden;
+}
+/* Apply margin */
+section.left.img .text {
+    margin-right: 100px;
+}
+section.right.img .text {
+    margin-left: 100px;
+}
+/* Optionally remove flexbox styling */
+section.img .text.no-flex {
+    display: initial;
+}
+/* Size variations */
+section.img .text.med {
+    width: 550px;
+}
+section.img .text.big {
+    width: 650px;
+}
+section.img .text.xl {
+    width: 740px;
+}
+/* Apply styling to image */
+section.img .img img {
+    width: 600px;
+    border-radius: 20px;
+}
+section.img .img {
+    position: relative;
+    flex: 1;
+}
+/* Set positioning */
+section.right.img .img {
+    display: flex;
+    justify-content: left;
+}
+/* Optionally remove flexbox styling */
+section.right.img .img.no-flex {
+    display: initial;
+}
+/* Deprecated Icon attach */
+section .img-attach {
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    z-index: 5;
+}
+
+/* Library project updates */
+.update {
+    margin: 10px 0;
+}
+.update .header * {
+    display: inline-flex;
+}
+/* Add seperator with pseudo classes */
+.update .header .text-16:before {
+    content: "—";
+    margin-right: 10px;
+}
+/* Set display */
+.update .header .text-16 {
+    margin: 0 10px;
+}
+.update .details {
+    padding: 0 20px;
+}
+
+/* Settings toggles */
+.settings {
+    --top: 0;
+    background: var(--main);
+}
+/* Header */
+.settings .head {
+    margin: 20px 30px;
+}
+.settings .head h4 {
+    color: var(--text-alt);
+}
+/* Inner window for settings to display */
+.settings .inner {
+    background: var(--main);
+    padding: 30px 0;
+    display: block;
+}
+/* Individual setting */
+.setting {
+    display: flex;
+    padding: 30px;
+    background: var(--main);
+    transition: 0.1s;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.setting:hover, .setting:focus, .setting:focus-within {
+    background: var(--highlight);
+}
+/* Apply margin to a setting next to another one */
+.setting.last {
+    margin-top: 20px;
+}
+/* Toggle container */
+.setting .option {
+    display: flex;
+    align-items: top;
+    justify-content: right;
+    text-align: right;
+    flex-grow: 1;
+    margin: 0 30px;
+    height: 20px;
+}
+.setting .text {
+    display: flex;
+}
+.setting .text .icon {
+    margin-right: 30px;
+}
+/* Define the actual toggles */
+.toggle {
+    padding: 7px 14px;
+    border-radius: 50px;
+    border: 3px solid var(--text-main);
+    display: inline-block;
+    transition: 0.2s;
+}
+.setting:hover .toggle {
+    border-color: var(--accent-page);
+    padding: 7px 24px;
+    box-shadow: 0px 0px 10px 0px var(--accent-page);
+}
+.setting:active .toggle {
+    padding: 7px 32px;
+}
+/* toggleDyslexicFont */
+.dyslexic .toggleDyslexicFont, .reduced-motion .toggleReducedMotion, .reduced-saturation .toggleReducedSaturation, .background-videos .toggleHeaderVideos, .helvetica-font .toggleHelveticaFont, .plexion-blue .toggleplexionBlue, .torus-font .toggleTorusFont, .light .toggleLightTheme, .classic-accents .toggleClassicAccents, .minimal-cards .toggleMinimalCards, .high-contrast .toggleHighContrast {
+    border-color: var(--accent-page);
+    background-color: var(--accent-page);
+}
+
+/* Display switcher */
+.switcher {
+    background: var(--main);
+    display: inline-flex;
+    padding: 10px;
+    border-radius: 5px;
+}
+.switcher .switch {
+    padding: 5px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: 0.1s;
+}
+.switcher .switch:hover, .switcher .switch:focus {
+    background: var(--raise-hover);
+}
+/* Remove margin on first and last switches */
+.switcher > :first-child {
+    margin-left: 0;
+}
+.switcher > :last-child {
+    margin-right: 0;
+}
+
+/* Image gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+    grid-gap: 15px;
+    margin: 20px 0;
+}
+.gallery .img {
+    text-align: center;
+    max-width: 700px;
+}
+.gallery .img img {
+    width: 100%;
+    border-radius: 10px;
+}
+.gallery .img .video iframe {
+    border-radius: 10px;
+}
+/* Size variation */
+.img.small img {
+    min-width: 350px;
+    max-width: 600px;
+    border-radius: 5px;
+    display: block;
+}
+
+/* Library pages */
+ol {
+    list-style: none;
+    counter-reset: li;
+}
+li {
+    line-height: 34px;
+    font-size: 16px;
+    color: var(--text-main);
+    margin: 3px 0;
+}
+ul.buttons li {
+    line-height: inherit;
+}
+ul.buttons li:before {
+    display: none !important;
+}
+ol li {
+    counter-increment: li;
+}
+li:before {
+    font-weight: 500;
+    margin: 0 10px 0 5px;
+    font-weight: 600;
+    width: 10px;
+    display: inline-block;
+}
+ol li:before {
+    content: counter(li) ".";
+}
+ul li:before {
+    content: "•";
+    margin: 0 5px;
+}
+li.text-18 {
+    line-height: 28px;
+}
+li.text-20 {
+    line-height: 32px;
+}
+/* Essentially copied straight from pre-rebuild ^ */
+
+/* Footer */
+footer {
+    background: var(--ext);
+    padding: 60px var(--padding);
+}
+/* Footer main group */
+footer .flex {
+    display: flex;
+}
+/* Footer ending text */
+footer .padding {
+    padding-top: 90px;
+}
+/* Footer socials */
+footer .links {
+    display: flex;
+}
+footer span {
+    margin-right: 80px;
+}
+footer .brand {
+    margin-right: 50px;
+}
+footer .links {
+    margin-right: 0;
+}
+footer .links .link {
+    margin-right: 150px;
+}
+/* Header for link containers */
+footer .links h4 {
+    font-family: var(--font-headline);
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+/* Links in containers */
+footer .links a {
+    font-size: 17px;
+    text-decoration: none;
+    color: var(--text-alt);
+    font-weight: 400;
+}
+footer .links a:hover, footer .links a:focus {
+    color: var(--accent-page);
+}
+/* Margins + display */
+footer .links li {
+    margin: 10px 0;
+}
+footer .links li:before {
+    display: none;
+}
+/* Footer brand wordmark */
+footer .brand h2, footer .brand h1 {
+    padding: 0 0 10px 0;
+    margin: 0;
+}
+footer .main {
+    width: 240px;
+    min-width: 210px;
+}
+
+/* Liquid-type div */
+.wave-wrap {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+.wave-wrap > svg {
+    display: block;
+}
+
+/* Warnings */
+.warning {
+    /* Apply border and background */
+    border: 2px solid var(--accent);
+    background-color: var(--target-raise);
+    border-radius: 10px;
+    /* Apply padding and margin */
+    padding: 20px;
+    margin: 20px 0;
+}
+
+/* Text styles */
+p {
+    padding: 10px 0;
+    line-height: 20px;
+    color: var(--text-main);
+}
+/* Paragraphs with tooltips */
+p[data-tooltip]:before {
+    bottom: -130%;
+}
+.icon i:not(.icon .headline-icon i) {
+    margin-right: 5px;
+}
+/* Italics */
+i {
+    font-style: italic;
+}
+/* Strong text */
+strong, b {
+    font-weight: 600;
+}
+.dark strong, .dark b {
+    font-weight: 500;
+}
+/* Alternate text sizes */
+.text-8 {
+    font-size: 8px;
+    line-height: 16px;
+}
+.text-12 {
+    font-size: 12px;
+    line-height: 22px;
+}
+.text-14 {
+    font-size: 14px;
+    line-height: 24px;
+}
+.text-16 {
+    font-size: 16px;
+    line-height: 26px;
+}
+.text-18 {
+    font-size: 18px;
+    line-height: 28px;
+}
+.text-20 {
+    font-size: 20px;
+    line-height: 32px;
+}
+.text-24 {
+    font-size: 24px;
+    line-height: 38px;
+}
+.text-32 {
+    font-size: 32px;
+    line-height: 44px;
+}
+.text-36 {
+    font-size: 36px;
+    line-height: 46px;
+}
+.text-38 {
+    font-size: 38px;
+    line-height: 50px;
+}
+.text-42 {
+    font-size: 42px;
+    line-height: 52px;
+}
+.text-48 {
+    font-size: 48px;
+    line-height: 58px;
+}
+.text-52 {
+    font-size: 52px;
+    line-height: 62px;
+}
+.text-56 {
+    font-size: 56px;
+    line-height: 70px;
+    font-family: var(--font-head);
+}
+.text-64 {
+    font-size: 64px;
+    line-height: 70px;
+    --brand: -6.5px;
+    --brand2: 6.5px;
+    font-family: var(--font-head);
+}
+.text-72 {
+    font-size: 72px;
+    line-height: 80px;
+    --brand: -7px;
+    --brand2: 7px;
+    font-family: var(--font-head);
+}
+.text-84 {
+    font-size: 84px;
+    line-height: 90px;
+    --brand: -8px;
+    --brand2: 8px;
+    font-family: var(--font-head);
+}
+.text-100 {
+    font-size: 100px;
+    line-height: 110px;
+    font-family: var(--font-head);
+}
+.text-150 {
+    font-size: 150px;
+    line-height: 160px;
+    font-family: var(--font-head);
+}
+
+/* Text colouring */
+h1 {
+    --brand: -5px;
+    --brand2: 5px;
+}
+.brand-font {
+    font-style: normal;
+}
+h1.brand-font {
+    text-shadow: var(--brand) var(--brand2) 0px var(--accent);
+}
+h2.brand-font {
+    text-shadow: -4px 4px 0px var(--accent);
+}
+.brand-font.plexion {
+    text-shadow: var(--brand) var(--brand2) 0px #003BFF;
+}
+.brand-full {
+    display: inline-block;
+    text-decoration: none;
+}
+.brand-full *, .brand-font, .dyslexic .brand-font, .brand h1 {
+    font-family: 'Poppins', var(--font-head) !important;
+}
+.brand {
+    text-decoration: none;
+}
+.brand-full .sub {
+    font-size: 40px;
+    font-weight: 600;
+    font-family: var(--font-head);
+    color: var(--text-head);
+    line-height: 12px;
+    float: right;
+    margin-bottom: 15px;
+    text-shadow: none;
+    font-style: normal;
+}
+a.brand-full.hover:hover, a.brand-full.hover:focus {
+    transform: scale(1.04);
+}
+.col-accent {
+    color: var(--accent);
+}
+.dark .col-accent {
+    color: var(--accent-raise);
+}
+.col-bg {
+    color: var(--text-bg);
+}
+.col-head {
+    color: var(--text-head);
+}
+.col-main {
+    color: var(--text-main);
+}
+.col-alt {
+    color: var(--text-alt);
+}
+.light-text-head {
+    color: var(--light-text-head);
+}
+.light-text-main {
+    color: var(--light-text-main);
+}
+/* Alternate text styles */
+/* Previously overline */
+.over {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-alt);
+    font-size: 14px;
+    font-weight: 600;
+}
+/* Tag */
+.tag {
+    /* Custom defined tag colour, otherwise uses global blue accent colour */
+    --accent: var(--feature);
+    background-color: var(--accent);
+    /* Text will be slightly transparent to fit */
+    color: rgba(0,0,0,0.75);
+    /* Add padding */
+    padding: 7px 12px;
+    border-radius: 20px;
+    /* Font sizes */
+    font-family: var(--font-main);
+    font-size: 13px;
+    text-shadow: none;
+    font-weight: 700;
+}
+.tag.bright {
+    color: rgba(255,255,255,0.85);
+}
+/* Tag font */
+.tag-font {
+    font-family: var(--font-tag);
+}
+/* Previously circle-tag */
+.tag.circle::before {
+    padding: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-right: 8px;
+    content: "";
+    display: inline-block;
+    position: relative;
+    bottom: 1px;
+}
+/* Star tags */
+.tag.star.faicon.left::before {
+    content: '';
+    margin: 0 3px 0 0;
+    font-size: 10px;
+    position: relative;
+    bottom: 1px;
+    font-weight: 900;
+}
+/* Download tags */
+.tag.dow.icon.left::before {
+    content: 'file_download';
+    margin: 0 3px 0 0;
+    font-size: 16px;
+    position: relative;
+    bottom: 1px;
+}
+/* Danger tags */
+.tag.danger, .tag.heart {
+    --accent: var(--danger);
+}
+.tag.danger.faicon.left::before {
+    content: '';
+    margin: 0 3px 0 0;
+    font-size: 14px;
+    font-weight: 900;
+}
+.tag.heart.faicon.left::before {
+    content: '';
+    margin: 0 3px 0 0;
+    font-size: 14px;
+    font-weight: 900;
+}
+/* Success tags */
+.tag.success, .tag.remix {
+    --accent: var(--success);
+}
+.tag.success.faicon.left::before {
+    content: '';
+    margin: 0 3px 0 0;
+    font-size: 14px;
+    font-weight: 900;
+}
+.tag.remix.faicon.left::before {
+    content: '';
+    margin: 0 3px 0 0;
+    font-size: 14px;
+    font-weight: 900;
+}
+/* Feature tags */
+.tag.feature, .tag.views {
+    --accent: var(--feature);
+}
+.tag.feature.faicon.left::before {
+    content: '';
+    margin: 0 3px 0 0;
+    font-size: 12px;
+    font-weight: 900;
+}
+.tag.views.faicon.left::before {
+    content: '';
+    margin: 0 3px 0 0;
+    font-size: 14px;
+    font-weight: 900;
+}
+/* Pending tags */
+.tag.pending, .tag.saved {
+    --accent: var(--pending);
+}
+.tag.pending.faicon.left::before {
+    content: '';
+    margin: 0 3px 0 0;
+    font-size: 14px;
+    font-weight: 900;
+}
+.tag.saved.faicon.left::before {
+    content: '';
+    margin: 0 3px 0 0;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+/* Icon buttons */
+footer .socials {
+    margin-top: 30px;
+    display: flex;
+}
+footer .socials .social-icon {
+    margin-right: 10px;
+}
+/* Icon button */
+.social-icon {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-alt);
+}
+.social-icon:hover, .social-icon:focus {
+    color: var(--text-main);
+}
+/* Icon button images/icons */
+.social-icon img {
+    width: 28px;
+}
+.social-icon i {
+    font-size: 24px;
+}
+
+/* Properly align material icons with text/content */
+.material-icons, .material-icons-outlined, .material-icons-round, .material-icons-sharp {
+    display: inline;
+    vertical-align: middle;
+}
+
+/* Video feed */
+.video-feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-gap: 10px;
+    transition: 0.2s ease-in-out;
+    padding: 20px;
+    justify-content: center;
+}
+.video-feed-limited {
+    display: grid;
+    grid-template-columns: 700px;
+    justify-content: center;
+    padding: 20px;
+}
+/* Video container */
+.video-container {
+    color: var(--main-text);
+    padding: 0;
+    border-radius: 0;
+    filter: brightness(100%);
+    justify-self: stretch;
+}
+/* Video iframe */
+.video {
+    position: relative;
+    padding-bottom: 56.25%;
+}
+.video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+/* Lower-resolutions */
+@media (max-width: 1760px) {
+    :root {
+        --padding: 200px;
+        --highlight-padding: var(--padding);
+        --limited-padding: var(--padding);
+    }
+}
+@media (max-width: 1560px) {
+    :root {
+        --padding: 100px;
+    }
+}
+@media (max-width: 1360px) {
+    :root {
+        --padding: 30px;
+    }
+    section.img {
+        flex-direction: column;
+    }
+    section.img .text {
+        width: auto;
+        padding: 0 20px;
+        margin-bottom: 30px;
+        display: inline;
+        padding: 0 160px;
+    }
+    section.img .img {
+        margin: 30px 0;
+    }
+    section.img.left .img img, section.img.right .img img {
+        float: initial;
+    }
+    section.right.img .img {
+        justify-content: center;
+    }
+    section.left, section.right, section.right .align-left {
+        text-align: center;
+    }
+    .sub-tiles-wrapper.left, .sub-tiles-wrapper.right {
+        justify-content: center;
+    }
+    section.no-align {
+        text-align: left;
+    }
+    section.img.left .text, section.img.right .text {
+        margin: 0;
+    }
+    .setting {
+        text-align: left;
+    }
+    section.img .img.can-hide {
+        display: none;
+    }
+    section.img .text.can-full {
+        width: auto;
+    }
+    .supports {
+        text-align: left;
+    }
+}
+@media (max-width: 1250px) {
+    footer .flex .brand {
+        margin-right: 0;
+    }
+    footer .flex .links {
+        margin-right: 0;
+        margin-top: 30px;
+    }
+    footer .links .link {
+        margin-right: 100px;
+    }
+    .text-72:not(.dont-shrink) {
+        font-size: 66px;
+        line-height: 66px;
+    }
+    .text-64 {
+        font-size: 60px;
+        line-height: 60px;
+    }
+    section.img .text {
+        padding: 0 110px;
+    }
+}
+@media (max-width: 1000px) {
+    footer .flex {
+        display: inherit;
+    }
+}
+@media (max-width: 900px) {
+    section.img .text {
+        padding: 0;
+    }
+    .sub-tiles {
+        display: initial;
+    }
+    .sub-tiles .tile {
+        margin: 40px 0;
+        display: block;
+        background: var(--main);
+        padding: 30px;
+        border-radius: 20px;
+    }
+}
+@media (max-width: 800px) {
+    header .links a .text {
+        display: none;
+    }
+    header .links a .icon {
+        display: inherit;
+    }
+    header {
+        padding: 15px var(--padding);
+    }
+    .header-gap {
+        height: 100px;
+    }
+    header .brand h1, header.scrolled .brand h1 {
+        text-shadow: -3px 3px 0px var(--col);
+        padding: 5px 0;
+        font-size: 32px;
+    }
+    section.img .img img {
+        width: 100%;
+        border-radius: 20px;
+    }
+    footer .links {
+        display: block;
+    }
+    .img.small img {
+        width: 100%;
+        max-width: auto;
+    }
+    .options {
+        display: flex;
+        flex-direction: column;
+    }
+    .options .option {
+        display: block;
+        border-radius: 20px !important;
+        border: none !important;
+        margin: 10px 0;
+    }
+}
+@media (max-width: 650px) {
+    .text-72:not(.dont-shrink) {
+        font-size: 44px;
+        line-height: 48px;
+    }
+    .text-64 {
+        font-size: 42px;
+        line-height: 42px;
+    }
+}
+@media (max-width: 620px) {
+    .video-feed {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        padding: 20px 0;
+    }
+}
+@media (max-width: 500px) {
+    header.join .links a {
+        text-shadow: none;
+    }
+    .supports .desc {
+        margin: 10px 0;
+    }
+    .text-16, h5 {
+        font-size: 17px;
+        line-height: 24px;
+    }
+    li {
+        font-size: 17px;
+        line-height: 32px;
+    }
+    .info-wrap {
+        display: block;
+    }
+    .info-wrap .desc {
+        display: flex;
+        flex: 1;
+        align-items: stretch;
+        flex-direction: row;
+        padding: 15px 10px;
+        margin: 10px 0;
+    }
+    .info-wrap .desc p:not(.col-alt), .info-wrap.socials .desc a, .info-wrap.socials .desc ul, .info-wrap .desc a {
+        flex-grow: 1;
+        text-align: right;
+    }
+    .info-wrap .desc p.col-alt {
+        font-weight: 600;
+        color: var(--text-head);
+    }
+    .update .details {
+        padding: 0;
+    }
+    .text-72.dont-shrink {
+        font-size: 58px;
+        line-height: 62px;
+    }
+    h1 {
+        font-size: 40px;
+        line-height: 54px;
+        --brand: -4px;
+        --brand2: 4px;
+    }
+    .button.left {
+        margin-left: 10px;
+    }
+    .button.right {
+        margin-right: 10px;
+    }
+    header .links a .text {
+        display: inherit;
+        font-size: 12px;
+        margin-top: 5px;
+    }
+    :root {
+        --padding: 10px;
+    }
+    .sub-tiles .tile {
+        padding: 15px;
+    }
+    section.xl {
+        --top: 150px;
+    }
+    header, header.join {
+        bottom: 0;
+        top: auto;
+    }
+    header .grad {
+        opacity: 0.0;
+    }
+    .header-gap {
+        height: 0;
+    }
+    .button {
+        display: block;
+    }
+    .button-group {
+        display: flex;
+    }
+    .button-group .button {
+        display: inline-block;
+        flex: 1;
+    }
+    .button.big {
+        padding: 14px 16px;
+    }
+    footer .links li {
+        margin: 12px 0;
+        padding: 6px 0;
+    }
+    header .links a, header.join .links a {
+        padding: 12px 0;
+        margin-left: 0;
+        margin: 0;
+        flex-grow: 1;
+    }
+    header .links .icon {
+        font-size: 24px;
+    }
+    header .brand {
+        display: none;
+    }
+    header, header.scrolled, header.join {
+        background-color: rgba(22, 22, 26, 0.7);
+        border-top: 1px solid rgba(255,255,255,0.1);
+        border-bottom: none;
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
+        justify-content: space-evenly;
+        padding: 0 0 20px 0;
+    }
+    header .links {
+        width: 100%;
+        justify-content: space-evenly;
+        text-align: center;
+        display: flex;
+    }
+    header .links a.focus {
+        color: var(--text-head);
+        width: auto;
+    }
+    header .links a.focus .bar {
+        display: none;
+    }
+    section.big {
+        --top: 130px;
+    }
+    section.settings {
+        padding: var(--padding) 0;
+    }
+    .setting {
+        padding: 30px 20px;
+    }
+    .setting .text .icon {
+        margin-right: 20px;
+    }
+    .setting .option {
+        margin: 0 10px;
+    }
+    .setting .text {
+        display: block;
+    }
+    .setting .text .icon .headline-icon {
+        margin: 0;
+    }
+    footer {
+        padding: 60px 20px;
+    }
+    footer {
+        padding-bottom: 120px;
+    }
+    footer .brand {
+        text-align: center;
+    }
+    footer .main {
+        width: auto;
+    }
+}
+@media (max-width: 430px) {
+    .images {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+    .images .image .img img {
+        width: 100%;
+    }
+    .cards {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        padding: 15px 5px;
+    }
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .socials.info-wrap {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        grid-gap: 10px;
+    }
+}
+
+/* Experiments */
+
+.helvetica-font {
+    --font-head: var(--font-main);
+    --font-head-small: var(--font-main);
+    --font-headline: var(--font-main);
+    --font-main: Helvetica, Arial, sans-serif;
+    --font-code: var(--font-main);
+    --font-tag: var(--font-main);
+}
+.torus-font {
+    --font-main: var(--font-tag);
+}
+.plexion-blue {
+    --accent: #003BFF;
+    --accent-raise: #3262ff;
+    --accent-page: var(--accent) !important;
+}
+.classic-accents {
+    --home: var(--accent);
+    --events: var(--accent);
+    --library: var(--accent);
+    --socials: var(--accent);
+    --experiments: var(--accent);
+}
+
+/* Minimal cards */
+/* Card */
+.minimal-cards .card {
+    display: flex;
+}
+.minimal-cards .card:hover, .minimal-cards .card:focus {
+    bottom: initial;
+    box-shadow: initial;
+}
+/* Card cover image */
+.minimal-cards .card .cover {
+    max-width: 120px;
+    height: auto;
+    overflow: initial;
+    margin-bottom: initial;
+    max-height: 500px;
+    transition: 0.2s;
+    border: none;
+}
+.minimal-cards .card .cover img {
+    width: 356px;
+    height: 200px;
+    transition: 0.2s;
+    position: relative;
+    right: 120px;
+}
+.minimal-cards .card.hover:hover .cover, .minimal-cards .card.hover:focus .cover {
+    max-width: 190px;
+}
+.minimal-cards .card.hover:hover .cover img, .minimal-cards .card.hover:focus .cover img {
+    right: 50px;
+    transform: scale(1);
+}
+/* Card info section */
+.minimal-cards .card .info {
+    height: 200px !important;
+    padding: 20px;
+    width: 100%;
+    background: var(--main);
+    z-index: 1;
+    border-radius: 10px 0 0 10px;
+}
+/* Card button section */
+.minimal-cards .card .buttons {
+    /* temp */
+    display: none;
+}
+
+/* Exo 2 */
+.exo-all {
+    --font-head: 'Exo 2', Poppins, -apple-system, BlinkMacSystemFont, Inter, Roboto, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-head-small: var(--font-head);
+    --font-main: 'Exo 2', -apple-system, BlinkMacSystemFont, Inter, Roboto, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-tag: var(--font-main);
+}
+.exo-header {
+    --font-head: 'Exo 2', Poppins, -apple-system, BlinkMacSystemFont, Inter, Roboto, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --font-head-small: var(--font-head);
+}
+
+/* Project type indicator */
+
+/* very bodged, not for the faint of heart */
+
+/* Event Datapacks */
+.Void-Rising:after, .UHC:after, .Lava-Rising:after, .Race-to-the-End:after, .Water-Rising:after, .Capture-the-Helmet:after {
+    content: ' • Event Datapack';
+}
+/* Resourcepacks */
+.Simple-Dark:after, .Metro-Dark-Theme:after, .OpenDyslexic-Font:after {
+    content: ' • Resourcepack';
+}
+/* Maps */
+.Haunting-Hunters:after {
+    content: ' • Map';
+}
+
+/* Project creator */
+.creator {
+    display: flex;
+}
+.creator > p {
+    padding: 0;
+}
+.creator > a {
+    display: flex;
+    margin: 0 10px;
+}
+/* Picture */
+.creator img {
+    border-radius: 50px;
+    width: 26px;
+    height: 26px;
+    margin-right: 5px;
+}
+
+/* Background slides */
+.slide {
+    display: none;
+    animation-name: fade;
+    animation-duration: 5s;
+}
+/* Fade */
+@keyframes fade {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
