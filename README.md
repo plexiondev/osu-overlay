@@ -16,5 +16,6 @@ obs overlay for osu!, using html + gosumemory.
 
 ## requirements
 
+* **launch obs with the arguments `--enable-gpu --enable-experimental-web-platform-features`** to enable the backdrop blur filter
 * internet connection (to connect to [plexion.dev](https://plexion.dev) for the css - will be removed soon)
 * [gosumemory](https://github.com/l3lackShark/gosumemory)
