@@ -1,31 +1,111 @@
-* {
-    --font-head: Poppins, var(--font-main) !important;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --font-main:  Montserrat !important;
+    --hit-100: #99ec70;
+    --hit-50: #f7ca61;
+    --hit-0: #ec4c4c;
+}
+.dark {
+    --border-alt: rgba(55,55,78,1) !important;
+}
+*:not(.background) {
+    z-index: 2;
+}
+
+.full-wrap {
+    height: 300px;
+}
+
+.overlay-ontop {
+    position: absolute;
+    width: 1240px;
+    height: 125px;
+}
+.floating {
+    width: 1240px;
+    height: 200px;
+    position: absolute;
+    bottom: 175px;
+}
+.strain {
+    width: 1270px;
+    height: 100px;
+    position: absolute;
 }
 
 .info-block {
     padding: 40px;
-    height: 236px;
-    width: 900px;
+    height: 175px;
+    width: 1240px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 /* title + diff */
-#title, #diff {
+#title {
+    font-weight: 700;
+}
+#title, #diff, #mapper {
     width: max-content;
     overflow: hidden;
     max-height: 40px;
-}
-#title {
-    position: absolute;
-    top: 40px;
-}
-#diff {
-    position: absolute;
-    top: 64px;
 }
 /* */
 .title {
     height: 70px;
     width: 100%;
+    position: relative;
+    bottom: 10px;
+    transition: 0.3s;
+}
+.title[data-state="menu"] {
+    bottom: -10px;
+}
+
+.info-block p {
+    padding: 0;
+}
+.extras {
+    display: flex;
+}
+
+#mapper:before {
+    content: 'mapper';
+    margin-right: 10px;
+    font-weight: 500;
+    color: var(--text-main);
+}
+#mapper {
+    margin-right: 30px;
+}
+#difficulty:before {
+    content: 'difficulty';
+    margin-right: 10px;
+    font-weight: 500;
+    color: var(--text-main);
+}
+#mapper, #difficulty {
+    font-weight: 600;
+    color: var(--text-head);
+}
+
+
+/* live score */
+.score {
+    position: absolute;
+    left: 0;
+    top: 110px;
+    width: max-content;
+    opacity: 0;
+    transition: 0.3s;
+}
+[data-state="playing"] .score {
+    left: 30px;
+    opacity: 1;
 }
 
 
@@ -35,50 +115,106 @@
     display: flex;
 }
 #ppCont {
-    position: absolute;
-    bottom: 40px;
-	left: 38px;
     width: max-content;
     max-height: 90px;
     overflow: hidden;	
     transition: ease-in-out 500ms;
     display: flex;
+    text-align: left;
+    margin-right: 20px;
+    position: absolute;
+    left: 80px;
+    opacity: 0;
+    top: 60px;
+    transition: 0.3s;
 }
 #ppCont .odometer-value {
-    width: 30px;
+    width: 20px;
 }
-#ppCont h3 {
+#ppCont h4 {
     position: relative;
-    top: 50px;
-    margin-left: 5px;
+    top: 20px;
+    margin-left: 4px;
+}
+#ppCont * {
+    padding: 0;
+}
+
+#ppCont[data-state="playing"] {
+    left: 110px;
+    opacity: 1;
 }
 
 
 /* hits */
 .hits {
+    display: flex;
+    align-items: center;
     position: absolute;
-    bottom: 40px;
-    right: 30px;
+    top: 70px;
+    left: 200px;
+    opacity: 0;
+    transition: 0.3s;
 }
-.hits {
+.hits[data-state="playing"] {
+    left: 230px;
+    opacity: 1;
+}
+.hits .inner {
+    /* grid */
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
-    width: 250px;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    width: 220px;
     grid-gap: 10px;
+    text-align: right;
 }
+/* obs being stupid please just fix software thanks */
 .hits h4 {
-    margin-right: 30px;
+    margin-right: 5px;
+}
+/* colour hit overline to the thing */
+.hits .over {
+    opacity: 0.8;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.h100 .over {
+    color: var(--hit-100);
+}
+.h50 .over {
+    color: var(--hit-50);
+}
+.h0 .over {
+    color: var(--hit-0);
+}
+
+.h100 {
+    --col: var(--hit-100);
+}
+.h50 {
+    --col: var(--hit-50);
+}
+.h0 {
+    --col: var(--hit-0);
+}
+
+.h100:after, .h50:after, .h0:after {
+    content: 'x';
+    color: var(--col);
 }
 
 
 /* mods */
 .mods {
-    position: absolute;
-    bottom: 120px;
-    right: 170px;
     display: flex;
     justify-content: flex-end;
     transition: 0.3s;
+    position: relative;
+    right: 5px;
+    margin-top: 5px;
+}
+.mods h5 {
+    margin-right: 10px;
 }
 .mod img {
     position: relative;
@@ -89,18 +225,75 @@
     margin-right: -5px;
 }
 .mods.move {
-    right: 60px;
+    right: 315px;
 }
 
+.active-mods {
+    margin: 0 20px 0 30px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0px;
+    bottom: 40px;
+}
+
+
+.rating.mod {
+    text-transform: uppercase;
+    margin-right: -5px;
+    box-shadow: var(--raise-2);
+    font-size: 16px;
+    transition: 0.3s;
+    font-weight: 700;
+}
+.mods[data-state="playing"] .rating.mod {
+    margin-right: -20px;
+}
+.mod i {
+    position: relative;
+    bottom: 2.5px;
+    font-size: 14px;
+}
+
+.mod[aria-label="nm"] {
+    display: none;
+}
+.mod[aria-label="ez"], .mod[aria-label="nf"], .mod[aria-label="ht"] {
+    background: #88B300;
+}
+.mod[aria-label="hr"], .mod[aria-label="sd"], .mod[aria-label="pf"], .mod[aria-label="dt"], .mod[aria-label="nc"], .mod[aria-label="hd"], .mod[aria-label="fl"], .mod[aria-label="fi"] {
+    background: #FFCC22;
+}
+.mod[aria-label="ap"], .mod[aria-label="cn"], .mod[aria-label="rx"], .mod[aria-label="at"], .mod[aria-label="so"] {
+    background: #66CCFF;
+}
+.mod[aria-label="v2"], .mod[is-mania-keys="true"], .mod[aria-label="co"], .mod[aria-label="mr"], .mod[aria-label="rd"] {
+    background: #8866EE;
+}
 
 /* rank */
 .rank {
     position: absolute;
-    bottom: 115px;
-    right: 80px;
     display: flex;
     justify-content: flex-end;
     font-style: italic;
+    left: 0;
+    top: 52px;
+    text-align: right;
+    opacity: 0;
+}
+.rank[data-state="playing"] {
+    left: 30px;
+    opacity: 1;
+}
+
+
+/* current play info */
+.play-info .play-cont {
+    padding: 10px 20px;
+    display: flex;
+    height: 75px;
+    position: absolute;
 }
 
 
@@ -123,4 +316,339 @@
 /* only show in-game */
 #only-ingame {
     transition: 0.15s;
+}
+
+
+/* cover art of map */
+.cover {
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    width: 270px;
+    height: 156px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: var(--raise-2);
+}
+.cover img {
+    width: 100%;
+}
+
+
+/* faded map bg */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 1240px;
+    height: 175px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background: linear-gradient(270deg, rgba(19,20,31,1) 15%, rgba(0,0,0,0) 100%);
+    overflow: hidden;
+}
+.background img {
+    width: 100%;
+    min-height: 175px;
+    z-index: -3;
+    opacity: 0.35;
+}
+
+
+/* star rating */
+.song-info {
+    position: absolute;
+    bottom: 30px;
+    left: 40px;
+    opacity: 1;
+    transition: 0.3s;
+    font-size: 18px !important;
+}
+.song-info[on-circles="true"], .song-info[data-state="menu"] {
+    opacity: 0;
+    bottom: 10px;
+}
+
+.rating {
+    background: #78aeff;
+    color: rgba(0,0,0,0.75);
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 5px;
+    line-height: 20px;
+    text-shadow: none;
+    height: 28px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 1.2px;
+}
+#ranked {
+    text-transform: uppercase !important;
+    font-weight: 700;
+}
+.rating .star {
+    font-size: 11px;
+    position: relative;
+    bottom: 1.3px;
+    margin-right: 2px;
+}
+.song-info[mode-std="0"] .rating.star-rating:after {
+    font-size: 0;
+}
+
+#star {
+    position: relative;
+    bottom: 1px;
+    left: 1px;
+}
+
+.star-rating.live {
+    opacity: 0;
+}
+.song-info[data-state="playing"] .star-rating.live {
+    opacity: 1;
+}
+
+.rating.hp-rating {
+    background: #ff7878;
+    margin-left: -55px;
+    transition: 0.3s;
+}
+.song-info[data-state="playing"] .rating.hp-rating {
+    background: #ff7878;
+    margin-left: 15px;
+}
+
+#hp, #cs, #ar, #od {
+    font-weight: 600;
+    color: var(--text-head);
+    margin-right: 10px;
+}
+
+.star-rating {
+    margin-right: 20px;
+}
+
+.rating i .odometer-value {
+    width: 10px;
+}
+
+.rating.cs-rating {
+    background: #ff78c2;
+}
+.rating.ar-rating {
+    background: #93ff78;
+}
+.rating.od-rating {
+    background: #b378ff;
+}
+.rating.ranked-rating {
+    color: rgba(0,0,0,0.9);
+    transition: 0.3s;
+}
+
+.star-rating {
+    background-color: var(--col);
+    --col: #AAAAAA;
+    transition: 0.3s;
+}
+/* 0 STARS */
+.star-rating[data-star-fixed="0"]:not([data-star="0.0"]) {
+    --col: #4290FB;
+}
+/* 1 STARS */
+.star-rating[data-star-fixed="1"][data-star-above="0"] {
+    --col: #4CB6FE;
+}
+.star-rating[data-star-fixed="1"][data-star-above="1"] {
+    --col: #4FC0FF;
+}
+.star-rating[data-star-fixed="1"][data-star-above="2"] {
+    --col: #4FD7F3;
+}
+.star-rating[data-star-fixed="1"][data-star-above="3"] {
+    --col: #4FECE4;
+}
+/* 2 STARS */
+.star-rating[data-star-fixed="2"][data-star-above="0"] {
+    --col: #4FFED6;
+}
+.star-rating[data-star-fixed="2"][data-star-above="1"] {
+    --col: #68FFA6;
+}
+.star-rating[data-star-fixed="2"][data-star-above="2"] {
+    --col: #7CFF4F;
+}
+.star-rating[data-star-fixed="2"][data-star-above="3"] {
+    --col: #AEFA53;
+}
+/* 3 STARS */
+.star-rating[data-star-fixed="3"][data-star-above="0"] {
+    --col: #D1F657;
+}
+.star-rating[data-star-fixed="3"][data-star-above="1"] {
+    --col: #EFF15B;
+}
+.star-rating[data-star-fixed="3"][data-star-above="2"] {
+    --col: #F8DD5F;
+}
+.star-rating[data-star-fixed="3"][data-star-above="3"] {
+    --col: #FBC262;
+}
+/* 4 STARS */
+.star-rating[data-star-fixed="4"][data-star-above="0"] {
+    --col: #FDA365;
+}
+.star-rating[data-star-fixed="4"][data-star-above="1"] {
+    --col: #FF7E68;
+}
+.star-rating[data-star-fixed="4"][data-star-above="2"] {
+    --col: #FF6E6B;
+}
+.star-rating[data-star-fixed="4"][data-star-above="2"] {
+    --col: #FF5B6E;
+}
+/* 5 STARS */
+.star-rating[data-star-fixed="5"][data-star-above="0"] {
+    --col: #F94D7A;
+}
+.star-rating[data-star-fixed="5"][data-star-above="1"] {
+    --col: #EB4B91;
+}
+.star-rating[data-star-fixed="5"][data-star-above="2"] {
+    --col: #DB48A4;
+}
+.star-rating[data-star-fixed="5"][data-star-above="2"] {
+    --col: #C945B5;
+}
+/* 6 STARS */
+.star-rating[data-star-fixed="6"][data-star-above="0"] {
+    --col: #B64DC1;
+}
+.star-rating[data-star-fixed="6"][data-star-above="1"] {
+    --col: #9F56CC;
+}
+.star-rating[data-star-fixed="6"][data-star-above="2"] {
+    --col: #825DD6;
+}
+.star-rating[data-star-fixed="6"][data-star-above="3"] {
+    --col: #6260DA;
+}
+/* 7 STARS */
+.star-rating[data-star-fixed="7"][data-star-above="0"] {
+    --col: #5755CA;
+}
+.star-rating[data-star-fixed="7"][data-star-above="1"] {
+    --col: #4846B7;
+}
+.star-rating[data-star-fixed="7"][data-star-above="2"] {
+    --col: #3331A1;
+}
+.star-rating[data-star-fixed="7"][data-star-above="2"] {
+    --col: #17158B;
+}
+/* 8 STARS */
+.star-rating[data-star-fixed="8"][data-star-above="0"] {
+    --col: #15137E;
+}
+.star-rating[data-star-fixed="8"][data-star-above="1"] {
+    --col: #13106F;
+}
+.star-rating[data-star-fixed="8"][data-star-above="2"] {
+    --col: #0F0D5B;
+}
+.star-rating[data-star-fixed="8"][data-star-above="2"] {
+    --col: #0B0A42;
+}
+/* 9 STARS + ABOVE */
+.star-rating[data-star-max="true"] {
+    --col: #000000 !important;
+}
+
+.star-rating[data-star-fixed="7"], .star-rating[data-star-fixed="8"], .star-rating[data-star-max="true"] {
+    color: #FFD966 !important;
+}
+
+/* game modes */
+.other-only {
+    opacity: 0;
+    transition: 0.3s;
+}
+.song-info[mode-std="0"] .std-only {
+    background: #AAAAAA !important;
+    opacity: 0 !important;
+}
+.song-info[mode-std="0"] .other-only {
+    opacity: 1;
+}
+
+/*body[ui-hidden="false"] .overlay-ontop, .overlay-ontop {
+    opacity: 1;
+    transition: 0.1s;
+}
+body[ui-hidden="true"] .overlay-ontop {
+    opacity: 0;
+}
+hides UI when shift+tab is toggled
+*/
+
+
+
+/* local */
+.pp-local {
+    position: absolute;
+    right: 234px;
+    top: 14px;
+    opacity: 0.7;
+}
+
+* {
+    font-family: 'Exo 2';
+}
+
+/* ranked status */
+
+.ranked-rating[aria-label="ranked"], .ranked-rating[aria-label="approved"] {
+    background: #B5FF68;
+}
+
+.ranked-rating[aria-label="pending"] {
+    background: #FDD967;
+}
+
+.ranked-rating[aria-label="loved"] {
+    background: #FF66AA;
+}
+
+.ranked-rating, .ranked-rating[aria-label="unknown"], .ranked-rating[aria-label="local"] {
+    background: #000102;
+    color: #487767;
+}
+
+.ranked-rating[aria-label="qualified"] {
+    background: #66CBFF;
+}
+
+
+/* selected gamemode */
+.selected-mode[mode="std"] .selected-mode, .selected-mode {
+    position: absolute;
+    right: 40px;
+    top: 64px;
+    opacity: 0;
+    transition: 0.3s;
+
+}
+.selected-mode img {
+    width: 48px;
+}
+
+.selected-mode[mode="mania"], .selected-mode[mode="taiko"], .selected-mode[mode="catch"] {
+    opacity: 0.5;
+    right: 60px;
 }
