@@ -41,8 +41,3 @@ click an image for more information
 
 if you're having any trouble, [create an issue](https://github.com/plexiondev/osu-overlay/issues)
 
-## gallery
-
-![](https://plexion.dev/img/osu!/booba.png)
-
-![](https://plexion.dev/img/osu!/midnight.png)
