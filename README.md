@@ -1,10 +1,19 @@
-# 'goosu-overlay'
+# osu! overlay
 
 obs overlay for osu!, using html + gosumemory.
 
+## variations
+click an image for more information
+
+[![Panel](https://user-images.githubusercontent.com/46572320/173233872-4c7de7af-6c31-4827-be5b-4c6364efd613.png)](gosumemory/p-panel/README.md)
+
+[![Classic](https://user-images.githubusercontent.com/46572320/173233985-6d3354e4-126d-4ec3-90a2-d59ac012d6e0.png)](gosumemory/p-classic/README.md)
+
+
+
+
 ## requirements
 
-* **launch obs with the arguments `--enable-gpu --enable-experimental-web-platform-features`** to enable the backdrop blur filter
 * internet connection (to connect to [plexion.dev](https://plexion.dev) for the css - will be removed soon)
 * [gosumemory](https://github.com/l3lackShark/gosumemory)
 * osu!stable (gosumemory [doesn't support lazer](https://github.com/l3lackShark/gosumemory/pull/41))
@@ -30,7 +39,7 @@ obs overlay for osu!, using html + gosumemory.
 
 ## help
 
-if you're having any issues just [drop me an email](mailto:github@plexion.dev)
+if you're having any trouble, [create an issue](https://github.com/plexiondev/osu-overlay/issues)
 
 ## gallery
 
