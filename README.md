@@ -7,8 +7,7 @@ click an image for more information
 
 [![Panel](https://user-images.githubusercontent.com/46572320/173233872-4c7de7af-6c31-4827-be5b-4c6364efd613.png)](gosumemory/p-panel/README.md)
 
-[![Classic](https://user-images.githubusercontent.com/46572320/173233985-6d3354e4-126d-4ec3-90a2-d59ac012d6e0.png)](gosumemory/p-classic/README.md)
-
+[![Classic](https://user-images.githubusercontent.com/46572320/173234427-006b5365-4ecb-4c53-b031-2fcc6546cbb2.png)](gosumemory/p-classic/README.md)
 
 
 
