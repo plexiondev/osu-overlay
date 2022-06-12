@@ -1,0 +1,52 @@
+/*
+    osu! overlay
+*/
+
+
+:root {
+    --panel-w: 900px;
+    --panel-h: 155px;
+}
+
+
+.panel {
+    position: relative;
+    width: var(--panel-w);
+    height: var(--panel-h);
+    margin: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.extra {
+    display: flex;
+    justify-content: center;
+}
+.extra p {
+    margin: 0 10px;
+}
+
+/* background */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--panel-w);
+    height: var(--panel-h);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.background img {
+    width: 100%;
+    min-height: 175px;
+    z-index: -3;
+    opacity: 0.35;
+}
