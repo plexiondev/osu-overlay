@@ -2,7 +2,7 @@
 
 obs overlay for osu!, using html + gosumemory.
 
-## variations
+## Variations
 click an image for more information
 
 [![Panel](https://user-images.githubusercontent.com/46572320/173233872-4c7de7af-6c31-4827-be5b-4c6364efd613.png)](gosumemory/p-panel/README.md)
@@ -11,32 +11,40 @@ click an image for more information
 
 
 
-## requirements
+## Requirements
 
-* internet connection (to connect to [plexion.dev](https://plexion.dev) for the css - will be removed soon)
-* [gosumemory](https://github.com/l3lackShark/gosumemory)
-* osu!stable (gosumemory [doesn't support lazer](https://github.com/l3lackShark/gosumemory/pull/41))
+- Internet connection (main css is stored @ [plexion.dev](https://plexion.dev))
+- Latest version of [gosumemory](https://github.com/l3lackShark/gosumemory)
+- osu!stable/beta/cutting-edge (gosumemory [doesn't support lazer](https://github.com/l3lackShark/gosumemory/pull/41))
 
-## install
+## Install
 
 #### gosumemory
-1. [install gosumemory](https://github.com/l3lackShark/gosumemory#usage)
-2. copy the 2 folders in my `gosumemory` folder into your `gosumemory/static` install folder
-3. boot up gosumemory and head to `127.0.0.1:24050`
-4. use `http://127.0.0.1:24050/mica-background/` for the background image
-5. and `http://127.0.0.1:24050/plexion-info/` for the main song info (with width `900` by height `236`)
+1. [Install gosumemory](https://github.com/l3lackShark/gosumemory#usage)
+2. Copy the 2 folders in the [gosumemory](gosumemory/) folder into your `gosumemory/static` install folder
+3. Boot up gosumemory and head to `127.0.0.1:24050`, if you see a list of files you succeeded
+4. Create a Browser Source for whichever variation you chose and follow it's [individual instructions](gosumemory/)
 
-#### main
-1. create a browser source in obs
-2. check `local file` and locate the individual html files
-3. resize your display capture, facecam and handcam to match up
-* (or remove the handcam div from `overlay-cam.html` if you don't have another camera)
+#### Camera/Screen borders (legacy)
+An optional addition that includes built-in display and camera borders.
 
-#### additional keyoverlay
+1. Create a **Browser Source** in OBS for the display and camera
+2. Enable **Local file**, and browse for [main/overlay.html](main/overlay.html) & [main/overlay-cam.html](main/overlay-cam.html)
+3. Scale your elements accordingly:
 
-* can be found [here, by blondazz](https://github.com/Blondazz/KeyOverlay)
+| Property | Value |
+| -------- | ----- |
+| Display | 1600x1900 |
+| Camera | 646x362 |
+| Handcam | 476x210 |
 
-## help
+> Your `overlay-cam.html` browser source can be cropped to optionally remove the handcam.
 
-if you're having any trouble, [create an issue](https://github.com/plexiondev/osu-overlay/issues)
+#### Extras
+
+- The KeyOverlay can be found [here, by blondazz](https://github.com/Blondazz/KeyOverlay)
+
+---
+
+If you're having any trouble, [create an issue](https://github.com/plexiondev/osu-overlay/issues)
 
