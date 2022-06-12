@@ -15,15 +15,18 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://kit.fontawesome.com/20a071237e.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body style="--accent-page: 333;">
     <div class="panel bg">
         <span class="content">
             <h3 id="attr.title"></h3>
             <div class="extra">
-                <h4 id="attr.difficulty"></h4>
-                <h4 id="attr.mapper"></h4>
+                <p class="text-18" id="attr.difficulty"></p>
+                <p class="text-18" id="attr.mapper"></p>
             </div>
         </span>
+        <div class="background">
+            <img id="img.primary" onerror="this.src = 'wall/none.png'">
+        </div>
     </div>
 </body>
 <script src="js/index.js"></script>

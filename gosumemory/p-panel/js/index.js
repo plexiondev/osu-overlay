@@ -21,7 +21,7 @@ socket.onerror = error => {
 
 
 // grades
-let grade = document.getElementById('grade');
+//let grade = document.getElementById('grade');
 function grade(text,colour) {
     grade.textContent = text;
     grade.style.colour = colour;
@@ -29,13 +29,19 @@ function grade(text,colour) {
 
 
 // main loop
+let img_primary;
+let colour;
+let image;
 socket.onmessage = event => {
     let data = JSON.parse(event.data);
 
     
     // backgrounds
-    data.menu.bm.path.full = data.menu.bm.path.full.replace(/#/g,'%23').replace(/%/g,'%25');
-    document.getElementById('img.primary').style = `background-image: url(http://127.0.0.1:24050/Songs/${data.menu.bm.path.full}?a=${Math.random()});`;
+    if (img_primary != data.menu.bm.path.full) {
+        img_primary = data.menu.bm.path.full;
+        data.menu.bm.path.full = data.menu.bm.path.full.replace(/#/g,'%23').replace(/%/g,'%25');
+        document.getElementById('img.primary').src = `http://127.0.0.1:24050/Songs/${data.menu.bm.path.full}?a=${Math.random(10000)}`;
+    }
 
     // content
     document.getElementById('attr.title').innerHTML = `${data.menu.bm.metadata.artist} - <strong>${data.menu.bm.metadata.title}</strong>`;
